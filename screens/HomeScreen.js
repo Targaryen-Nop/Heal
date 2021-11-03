@@ -23,36 +23,9 @@ const HomeScreen = ({navigation}) => {
   return (
     <ScrollView style={styles.container}>
       <StatusBar barStyle={theme.dark ? 'light-content' : 'dark-content'} />
-      <View style={styles.sliderContainer}>
-        <Swiper
-          autoplay
-          horizontal={false}
-          height={200}
-          activeDotColor="#FF6347">
-          <View style={styles.slide}>
-            <Image
-              source={require('../assets/banners/food-banner1.jpg')}
-              resizeMode="cover"
-              style={styles.sliderImage}
-            />
-          </View>
-          <View style={styles.slide}>
-            <Image
-              source={require('../assets/banners/food-banner2.jpg')}
-              resizeMode="cover"
-              style={styles.sliderImage}
-            />
-          </View>
-          <View style={styles.slide}>
-            <Image
-              source={require('../assets/banners/food-banner3.jpg')}
-              resizeMode="cover"
-              style={styles.sliderImage}
-            />
-          </View>
-        </Swiper>
-      </View>
-
+    
+      
+      
       <View style={styles.categoryContainer}>
         <TouchableOpacity
           style={styles.categoryBtn}
@@ -63,6 +36,7 @@ const HomeScreen = ({navigation}) => {
             <Ionicons name="ios-restaurant" size={35} color="#FF6347" />
           </View>
           <Text style={styles.categoryBtnTxt}>Restaurant</Text>
+          
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.categoryBtn}
@@ -174,6 +148,7 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:'#D3D3D3'
   },
   sliderContainer: {
     height: 200,

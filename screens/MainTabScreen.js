@@ -5,6 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwsome from 'react-native-vector-icons/FontAwesome';
 
 import HomeScreen from './HomeScreen';
 import NotificationScreen from './NotificationScreen';
@@ -18,6 +19,7 @@ import {View} from 'react-native-animatable';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import CardListScreen from './CardListScreen';
 import CardItemDetails from './CardItemDetails';
+import ATKReportScreen from './ATKReportScreen';
 
 const HomeStack = createStackNavigator();
 const NotificationStack = createStackNavigator();
@@ -27,25 +29,51 @@ const Tab = createMaterialBottomTabNavigator();
 
 const MainTabScreen = () => (
   <Tab.Navigator initialRouteName="Home" activeColor="#fff">
+    
     <Tab.Screen
-      name="Home"
-      component={HomeStackScreen}
+      name="Map"
+      component={ExploreScreen}
       options={{
-        tabBarLabel: 'Home',
-        tabBarColor: '#FF6347',
+        tabBarLabel: 'Map',
+        tabBarColor: '#023246',
         tabBarIcon: ({color}) => (
-          <Icon name="ios-home" color={color} size={26} />
+          <FontAwsome name="shopping-cart" color={color} size={26} />
         ),
       }}
     />
+    
     <Tab.Screen
       name="Notifications"
       component={NotificationStackScreen}
       options={{
         tabBarLabel: 'Updates',
-        tabBarColor: '#1f65ff',
+        tabBarColor: '#023246',
         tabBarIcon: ({color}) => (
-          <Icon name="ios-notifications" color={color} size={26} />
+          <FontAwsome name="globe" color={color} size={26} />
+        ),
+      }}
+    />
+    <Tab.Screen
+      name="Home"
+      component={HomeStackScreen}
+      options={{
+        tabBarLabel: 'Home',
+        tabBarColor: '#023246',
+        tabBarIcon: ({color}) => (
+          <Icon name="ios-home" color={color} size={26} />
+        ),
+      }}
+    />
+    
+   
+    <Tab.Screen
+      name="ATKReport"
+      component={ATKReportScreen}
+      options={{
+        tabBarLabel: 'ATK Report',
+        tabBarColor: '#023246',
+        tabBarIcon: ({color}) => (
+          <MaterialCommunityIcons name='book' color={color} size={26}/>
         ),
       }}
     />
@@ -54,20 +82,9 @@ const MainTabScreen = () => (
       component={ProfileStackScreen}
       options={{
         tabBarLabel: 'Profile',
-        tabBarColor: '#694fad',
+        tabBarColor: '#023246',
         tabBarIcon: ({color}) => (
           <Icon name="ios-person" color={color} size={26} />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="Explore"
-      component={ExploreScreen}
-      options={{
-        tabBarLabel: 'Explore',
-        tabBarColor: '#d02860',
-        tabBarIcon: ({color}) => (
-          <Icon name="ios-aperture" color={color} size={26} />
         ),
       }}
     />
@@ -95,27 +112,10 @@ const HomeStackScreen = ({navigation}) => {
         name="Home"
         component={HomeScreen}
         options={{
-          title: 'FoodFinder',
-          headerLeft: () => (
-            <View style={{marginLeft: 10}}>
-              <Icon.Button
-                name="ios-menu"
-                size={25}
-                color={colors.text}
-                backgroundColor={colors.background}
-                onPress={() => navigation.openDrawer()}
-              />
-            </View>
-          ),
+          title: '',
           headerRight: () => (
             <View style={{flexDirection: 'row', marginRight: 10}}>
-              <Icon.Button
-                name="ios-search"
-                size={25}
-                color={colors.text}
-                backgroundColor={colors.background}
-                onPress={() => {}}
-              />
+             
               <TouchableOpacity
                 style={{paddingHorizontal: 10, marginTop: 5}}
                 onPress={() => {
@@ -126,7 +126,7 @@ const HomeStackScreen = ({navigation}) => {
                     uri:
                       'https://api.adorable.io/avatars/80/abott@adorable.png',
                   }}
-                  size={30}
+                  size={50}
                 />
               </TouchableOpacity>
             </View>
