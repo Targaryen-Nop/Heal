@@ -168,7 +168,7 @@ const ExploreScreen = () => {
       <ScrollView
         horizontal
         scrollEventThrottle={1}
-        showsHorizontalScrollIndicator={false}
+        showsHorizontalScrollIndicator={true}
         height={50}
         style={styles.chipsScrollView}
         contentInset={{ // iOS only

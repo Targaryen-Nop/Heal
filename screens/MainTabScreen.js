@@ -98,6 +98,7 @@ const HomeStackScreen = ({navigation}) => {
   return (
     <HomeStack.Navigator
       screenOptions={{
+        headerShown:false,
         headerStyle: {
           backgroundColor: colors.background,
           shadowColor: colors.background, // iOS
@@ -116,19 +117,7 @@ const HomeStackScreen = ({navigation}) => {
           headerRight: () => (
             <View style={{flexDirection: 'row', marginRight: 10}}>
              
-              <TouchableOpacity
-                style={{paddingHorizontal: 10, marginTop: 5}}
-                onPress={() => {
-                  navigation.navigate('Profile');
-                }}>
-                <Avatar.Image
-                  source={{
-                    uri:
-                      'https://api.adorable.io/avatars/80/abott@adorable.png',
-                  }}
-                  size={50}
-                />
-              </TouchableOpacity>
+             
             </View>
           ),
         }}
