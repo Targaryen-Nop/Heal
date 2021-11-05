@@ -4,21 +4,16 @@ import {
   Text,
   Image,
   StyleSheet,
-  StatusBar,
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
 import {useTheme} from '@react-navigation/native';
 import {Avatar} from 'react-native-paper';
-import {th} from 'date-fns/locale';
+import {gl, th} from 'date-fns/locale';
 import {format} from 'date-fns';
-import { globeStyles } from '../styles/globle';
+import {globeStyles} from '../styles/globle';
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Fontisto from 'react-native-vector-icons/Fontisto';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import StarRating from '../components/StarRating';
+
 
 const HomeScreen = ({navigation}) => {
   const theme = useTheme();
@@ -45,24 +40,43 @@ const HomeScreen = ({navigation}) => {
           />
         </TouchableOpacity>
         <View style={{flexDirection: 'row', marginLeft: 200}}>
-          <Image source={require('../assets/message.png')} style={{width:50,height:50}}/>
-          <Image source={require('../assets/bell.png')} style={{width:50,height:50}}/>
+          <TouchableOpacity>
+            <Image
+              source={require('../assets/message.png')}
+              style={{width: 50, height: 50}}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image
+              source={require('../assets/bell.png')}
+              style={{width: 50, height: 50}}
+            />
+          </TouchableOpacity>
         </View>
       </View>
       <View style={{paddingStart: 10}}>
-        <Text style={{fontSize:30,color:'#287094',fontFamily:'Prompt-Bold'}}>My Today </Text>
-        <Text style={[globeStyles.font,{fontSize:20}]}>{format(new Date(), 'dd MMMM yyyy', {locale: th})}</Text>
+        <Text
+          style={{fontSize: 30, color: '#287094', fontFamily: 'Prompt-Bold'}}>
+          My Today
+        </Text>
+        <Text style={[globeStyles.font, {fontSize: 20}]}>
+          {format(new Date(), 'dd MMMM yyyy', {locale: th})}
+        </Text>
       </View>
-      <View style={{backgroundColor: '#023246', borderRadius: 20}}>
-        <Text style={{width: 100}} />
-        <View style={styles.feednews}>
+      <View style={globeStyles.cardlayout}>
+      <Text style={{width: 10}} />
+        <View style={globeStyles.cardinside}>
           <View>
             <View style={styles.captionContainer}>
               <TouchableOpacity style={styles.caption}>
-                <Text style={[globeStyles.font,styles.fontCaption]}>ข่าวสารอัพเดท</Text>
+                <Text style={[globeStyles.font, styles.fontCaption]}>
+                  ข่าวสารอัพเดท
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity>
-                <Text style={[globeStyles.font,styles.fontViewall]}>View All</Text>
+                <Text style={[globeStyles.font, styles.fontViewall]}>
+                  View All
+                </Text>
               </TouchableOpacity>
             </View>
             <ScrollView
@@ -98,10 +112,14 @@ const HomeScreen = ({navigation}) => {
             </ScrollView>
             <View style={styles.captionContainer}>
               <TouchableOpacity style={styles.caption}>
-                <Text style={[globeStyles.font,styles.fontCaption]}>ข้อมูลสารด่วน</Text>
+                <Text style={[globeStyles.font, styles.fontCaption]}>
+                  ข้อมูลสารด่วน
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity>
-                <Text style={[globeStyles.font,styles.fontViewall]}>View All</Text>
+                <Text style={[globeStyles.font, styles.fontViewall]}>
+                  View All
+                </Text>
               </TouchableOpacity>
             </View>
             <ScrollView
@@ -137,10 +155,14 @@ const HomeScreen = ({navigation}) => {
             </ScrollView>
             <View style={styles.captionContainer}>
               <TouchableOpacity style={styles.caption}>
-                <Text style={[globeStyles.font,styles.fontCaption]}>ข้อมูลหน่วยงาน</Text>
+                <Text style={[globeStyles.font, styles.fontCaption]}>
+                  ข้อมูลหน่วยงาน
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity>
-                <Text style={[globeStyles.font,styles.fontViewall]}>View All</Text>
+                <Text style={[globeStyles.font, styles.fontViewall]}>
+                  View All
+                </Text>
               </TouchableOpacity>
             </View>
             <ScrollView
@@ -203,23 +225,21 @@ const styles = StyleSheet.create({
     borderTopStartRadius: 25,
     borderTopRightRadius: 25,
   },
-  captionContainer:{
+  captionContainer: {
     flexDirection: 'row',
-    justifyContent:'space-between'    
+    justifyContent: 'space-between',
   },
 
-  caption:{
-    borderStartWidth:10,
-    borderColor:'#287094',
+  caption: {
+    borderStartWidth: 10,
+    borderColor: '#287094',
   },
-  fontCaption:{
-    marginStart:5,
-    fontSize:25
+  fontCaption: {
+    marginStart: 5,
+    fontSize: 25,
   },
-  fontViewall:{
-    marginStart:5,
-    fontSize:15
-
-  }
-
+  fontViewall: {
+    marginStart: 5,
+    fontSize: 15,
+  },
 });

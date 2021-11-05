@@ -179,12 +179,7 @@ const ProfileStackScreen = ({navigation}) => {
   return (
     <ProfileStack.Navigator
       screenOptions={{
-        headerStyle: {
-          backgroundColor: colors.background,
-          shadowColor: colors.background, // iOS
-          elevation: 0, // Android
-        },
-        headerTintColor: colors.text,
+        headerShown:false,
       }}>
       <ProfileStack.Screen
         name="Profile"
