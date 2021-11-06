@@ -20,6 +20,8 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import CardListScreen from './CardListScreen';
 import CardItemDetails from './CardItemDetails';
 import ATKReportScreen from './ATKReportScreen';
+import SaveATKScreen from './SaveATKScreen';
+import MenuCheckATKScreen from './MenuCheckATKScreen';
 
 const HomeStack = createStackNavigator();
 const NotificationStack = createStackNavigator();
@@ -29,24 +31,23 @@ const Tab = createMaterialBottomTabNavigator();
 
 const MainTabScreen = () => (
   <Tab.Navigator initialRouteName="Home" activeColor="#fff">
-    
     <Tab.Screen
       name="Map"
       component={ExploreScreen}
       options={{
-        tabBarLabel: 'Map',
+        tabBarLabel: 'สินค้า',
         tabBarColor: '#023246',
         tabBarIcon: ({color}) => (
           <FontAwsome name="shopping-cart" color={color} size={26} />
         ),
       }}
     />
-    
+
     <Tab.Screen
       name="Notifications"
       component={NotificationStackScreen}
       options={{
-        tabBarLabel: 'Updates',
+        tabBarLabel: 'ข่าวสาร',
         tabBarColor: '#023246',
         tabBarIcon: ({color}) => (
           <FontAwsome name="globe" color={color} size={26} />
@@ -57,23 +58,22 @@ const MainTabScreen = () => (
       name="Home"
       component={HomeStackScreen}
       options={{
-        tabBarLabel: 'Home',
+        tabBarLabel: 'หน้าหลัก',
         tabBarColor: '#023246',
         tabBarIcon: ({color}) => (
           <Icon name="ios-home" color={color} size={26} />
         ),
       }}
     />
-    
-   
+
     <Tab.Screen
       name="ATKReport"
       component={ATKReportScreen}
       options={{
-        tabBarLabel: 'ATK Report',
+        tabBarLabel: 'ประวัติATK',
         tabBarColor: '#023246',
         tabBarIcon: ({color}) => (
-          <MaterialCommunityIcons name='book' color={color} size={26}/>
+          <MaterialCommunityIcons name="book" color={color} size={26} />
         ),
       }}
     />
@@ -81,7 +81,7 @@ const MainTabScreen = () => (
       name="Profile"
       component={ProfileStackScreen}
       options={{
-        tabBarLabel: 'Profile',
+        tabBarLabel: 'PROFILE',
         tabBarColor: '#023246',
         tabBarIcon: ({color}) => (
           <Icon name="ios-person" color={color} size={26} />
@@ -98,7 +98,7 @@ const HomeStackScreen = ({navigation}) => {
   return (
     <HomeStack.Navigator
       screenOptions={{
-        headerShown:false,
+        headerShown: false,
         headerStyle: {
           backgroundColor: colors.background,
           shadowColor: colors.background, // iOS
@@ -115,22 +115,19 @@ const HomeStackScreen = ({navigation}) => {
         options={{
           title: '',
           headerRight: () => (
-            <View style={{flexDirection: 'row', marginRight: 10}}>
-             
-             
-            </View>
+            <View style={{flexDirection: 'row', marginRight: 10}} />
           ),
         }}
       />
-      <HomeStack.Screen 
+      <HomeStack.Screen
         name="CardListScreen"
         component={CardListScreen}
         options={({route}) => ({
           title: route.params.title,
-          headerBackTitleVisible: false
+          headerBackTitleVisible: false,
         })}
       />
-      <HomeStack.Screen 
+      <HomeStack.Screen
         name="CardItemDetails"
         component={CardItemDetails}
         options={({route}) => ({
@@ -138,7 +135,7 @@ const HomeStackScreen = ({navigation}) => {
           headerBackTitleVisible: false,
           headerTitle: false,
           headerTransparent: true,
-          headerTintColor: '#fff'
+          headerTintColor: '#fff',
         })}
       />
     </HomeStack.Navigator>
@@ -179,7 +176,7 @@ const ProfileStackScreen = ({navigation}) => {
   return (
     <ProfileStack.Navigator
       screenOptions={{
-        headerShown:false,
+        headerShown: false,
       }}>
       <ProfileStack.Screen
         name="Profile"
@@ -216,6 +213,20 @@ const ProfileStackScreen = ({navigation}) => {
           title: 'Edit Profile',
         }}
         component={EditProfileScreen}
+      />
+      <ProfileStack.Screen
+        name="SaveATK"
+        options={{
+          title: 'Save ATK',
+        }}
+        component={SaveATKScreen}
+      />
+      <ProfileStack.Screen
+        name="MenuCheck"
+        options={{
+          title: 'Check ATK',
+        }}
+        component={MenuCheckATKScreen}
       />
     </ProfileStack.Navigator>
   );

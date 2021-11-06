@@ -7,26 +7,28 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+
 import {Avatar} from 'react-native-paper';
 import {th} from 'date-fns/locale';
 import {format} from 'date-fns';
+
 
 import {globeStyles} from '../styles/globle';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const ProfileScreen = () => {
+const ProfileScreen = ({navigation}) => {
   return (
     <ScrollView>
       <View style={{paddingHorizontal:20,paddingTop:20}}>
         <View style={{flexDirection: 'row', justifyContent: 'space-between',alignItems:'center'}}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.goBack()}}>
             <Image
               source={require('../assets/back.png')}
               style={{width: 50, height: 50}}
             />
           </TouchableOpacity>
-          <Text style={styles.text}>MY PROFILE</Text>
+          <Text style={[styles.text,globeStyles.fontBold]}>MY PROFILE</Text>
           <TouchableOpacity>
             <Image
               source={require('../assets/setting.png')}
@@ -42,7 +44,7 @@ const ProfileScreen = () => {
         />
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <View>
-            <Text style={styles.text}>MY TODAY</Text>
+            <Text style={[styles.text,globeStyles.fontBold]}>MY TODAY</Text>
             <Text style={[globeStyles.font, {fontSize: 15}]}>
               {format(new Date(), 'dd MMMM yyyy', {locale: th})}
             </Text>
@@ -69,7 +71,7 @@ const ProfileScreen = () => {
             <Text  style={[globeStyles.font,{fontSize:20,}]}>xxxxxxxxxxx</Text>
           </View>
           <View style={styles.borderBot} />
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate('SaveATK')}}>
             <View style={[styles.flexRow, {justifyContent: 'space-between'}]}>
               <Text style={[globeStyles.font,{paddingStart: 40,fontSize:20,}]}>บันทึกประวัติ ATK</Text>
               <View />
@@ -77,7 +79,7 @@ const ProfileScreen = () => {
             </View>
           </TouchableOpacity>
           <View style={styles.borderBot} />
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate('MenuCheck')}}>
             <View style={[styles.flexRow, {justifyContent: 'space-between',}]}>
               <Text style={[globeStyles.font,{paddingStart: 40,fontSize:20,}]}>รายการตรวจ ATK</Text>
               <View />
@@ -117,8 +119,6 @@ const ProfileScreen = () => {
             </View>
           </TouchableOpacity>
           <View style={styles.borderBot} />
-
-          
         </View>
       </View>
     </ScrollView>
@@ -141,10 +141,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   text:{
-    color: '#287094', 
-    fontFamily: 'Prompt-Bold',
     fontSize:25,
-
   }
 });
 export default ProfileScreen;

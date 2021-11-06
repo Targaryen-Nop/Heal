@@ -15,4 +15,16 @@ export const globeStyles = StyleSheet.create({
     borderTopStartRadius: 25,
     borderTopRightRadius: 25,
   },
+  fontBold:{
+    fontFamily:'Prompt-Bold',
+    color: '#287094',
+  },
+  fontWhite:{
+    fontFamily: 'Prompt-Regular',
+    color: '#fff',
+  },
+  fontWhiteBold:{
+    fontFamily:'Prompt-Bold',
+    color: '#fff',
+  }
 });
