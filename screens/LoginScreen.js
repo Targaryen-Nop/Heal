@@ -22,7 +22,7 @@ const LoginScreen = () => {
         source={require('../assets/background.jpg')}
         resizeMode="cover"
         style={styles.image}>
-        <View style={{alignItems: 'center', marginTop: 50}}>
+        <View style={{alignItems: 'center', marginTop: 50}} >
           <Image
             source={require('../assets/logo.png')}
             style={styles.logo}
@@ -40,7 +40,7 @@ const LoginScreen = () => {
               <CheckBox
                 value={isSelected}
                 onValueChange={setSelection}
-                style={{color: '#fff'}}
+                
               />
               <Text style={globeStyles.fontWhite}>Remember me</Text>
             </View>
@@ -54,19 +54,19 @@ const LoginScreen = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                 },styles.shadow]}>
-                <Text style={globeStyles.font}>Register</Text>
+                <Text style={[globeStyles.font,{fontSize:20}]}>Register</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={[{
                   width: 125,
                   height: 50,
-                  backgroundColor: '#023246',
+                  backgroundColor: '#287094',
                   borderRadius: 50,
                   marginStart: 25,
                   alignItems: 'center',
                   justifyContent: 'center',
                 },styles.shadow]}>
-                <Text style={globeStyles.fontWhite}>Sign in</Text>
+                <Text style={[globeStyles.fontWhite,{fontSize:20}]}>Sign in</Text>
               </TouchableOpacity>
             </View>
           </View>

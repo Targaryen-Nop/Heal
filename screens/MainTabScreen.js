@@ -23,6 +23,7 @@ import ATKReportScreen from './ATKReportScreen';
 import SaveATKScreen from './SaveATKScreen';
 import MenuCheckATKScreen from './MenuCheckATKScreen';
 import LoginScreen from './LoginScreen';
+import RegisterScreen from './RegisterScreen';
 
 const HomeStack = createStackNavigator();
 const NotificationStack = createStackNavigator();
@@ -69,7 +70,7 @@ const MainTabScreen = () => (
 
     <Tab.Screen
       name="ATKReport"
-      component={LoginScreen}
+      component={RegisterScreen}
       options={{
         tabBarLabel: 'ประวัติATK',
         tabBarColor: '#023246',
