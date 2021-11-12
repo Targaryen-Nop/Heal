@@ -15,7 +15,18 @@ import {
 import {globeStyles} from '../styles/globle';
 
 const RegisterScreen = () => {
+
   const [isSelected, setSelection] = React.useState(false);
+
+  const [data, setData] = React.useState({
+    username: '',
+    password: '',
+    confirm_password: '',
+    check_textInputChange: false,
+    secureTextEntry: true,
+    confirm_secureTextEntry: true,
+});
+
   return (
     <ScrollView style={styles.container}>
       <ImageBackground
@@ -49,6 +60,7 @@ const RegisterScreen = () => {
             />
             <TextInput
               placeholder="Password"
+              keyboardType='visible-password'
               style={[styles.textinput, styles.shadow]}
             />
             <TextInput
