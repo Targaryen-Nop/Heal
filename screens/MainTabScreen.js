@@ -24,30 +24,23 @@ import SaveATKScreen from './SaveATKScreen';
 import MenuCheckATKScreen from './MenuCheckATKScreen';
 import LoginScreen from './LoginScreen';
 import RegisterScreen from './RegisterScreen';
+import NewsSreen from './NewsSreen';
+import SignInScreen from './SignUpScreen';
+import SignUpScreen from './SignUpScreen';
 
 const HomeStack = createStackNavigator();
 const NotificationStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
+const NewsStack = createStackNavigator();
 
 const Tab = createMaterialBottomTabNavigator();
 
 const MainTabScreen = () => (
   <Tab.Navigator initialRouteName="Home" activeColor="#fff">
-    <Tab.Screen
-      name="Map"
-      component={ExploreScreen}
-      options={{
-        tabBarLabel: 'สินค้า',
-        tabBarColor: '#023246',
-        tabBarIcon: ({color}) => (
-          <FontAwsome name="shopping-cart" color={color} size={26} />
-        ),
-      }}
-    />
-
+   
     <Tab.Screen
       name="Notifications"
-      component={NotificationStackScreen}
+      component={NewsStackStackScreen}
       options={{
         tabBarLabel: 'ข่าวสาร',
         tabBarColor: '#023246',
@@ -58,7 +51,7 @@ const MainTabScreen = () => (
     />
     <Tab.Screen
       name="Home"
-      component={HomeStackScreen}
+      component={SignUpScreen}
       options={{
         tabBarLabel: 'หน้าหลัก',
         tabBarColor: '#023246',
@@ -81,7 +74,7 @@ const MainTabScreen = () => (
     />
     <Tab.Screen
       name="Profile"
-      component={ProfileStackScreen}
+      component={SignInScreen}
       options={{
         tabBarLabel: 'PROFILE',
         tabBarColor: '#023246',
@@ -183,31 +176,6 @@ const ProfileStackScreen = ({navigation}) => {
       <ProfileStack.Screen
         name="Profile"
         component={ProfileScreen}
-        options={{
-          title: '',
-          headerLeft: () => (
-            <View style={{marginLeft: 10}}>
-              <Icon.Button
-                name="ios-menu"
-                size={25}
-                backgroundColor={colors.background}
-                color={colors.text}
-                onPress={() => navigation.openDrawer()}
-              />
-            </View>
-          ),
-          headerRight: () => (
-            <View style={{marginRight: 10}}>
-              <MaterialCommunityIcons.Button
-                name="account-edit"
-                size={25}
-                backgroundColor={colors.background}
-                color={colors.text}
-                onPress={() => navigation.navigate('EditProfile')}
-              />
-            </View>
-          ),
-        }}
       />
       <ProfileStack.Screen
         name="EditProfile"
@@ -231,5 +199,21 @@ const ProfileStackScreen = ({navigation}) => {
         component={MenuCheckATKScreen}
       />
     </ProfileStack.Navigator>
+  );
+};
+
+
+const NewsStackStackScreen = ({navigation}) => {
+  
+  return (
+    <NewsStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <NewsStack.Screen
+        name="News"
+        component={NewsSreen}
+      />
+    </NewsStack.Navigator>
   );
 };
