@@ -19,7 +19,7 @@ import {globeStyles} from '../styles/globle';
 import {AuthContext} from '../components/context';
 import axios from 'axios';
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
   const [isSelected, setSelection] = React.useState(false);
 
   const [data, setData] = React.useState({
@@ -188,7 +188,8 @@ const LoginScreen = () => {
                     justifyContent: 'center',
                   },
                   styles.shadow,
-                ]}>
+                ]}
+                onPress={()=>{navigation.navigate('RegisterScreen')}}>
                 <Text style={[globeStyles.font, {fontSize: 20}]}>Register</Text>
               </TouchableOpacity>
               <TouchableOpacity

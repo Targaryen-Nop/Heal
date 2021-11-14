@@ -27,6 +27,7 @@ import RegisterScreen from './RegisterScreen';
 import NewsSreen from './NewsSreen';
 import SignInScreen from './SignUpScreen';
 import SignUpScreen from './SignUpScreen';
+import TestUpload from './TestUpload';
 
 const HomeStack = createStackNavigator();
 const NotificationStack = createStackNavigator();
@@ -51,7 +52,7 @@ const MainTabScreen = () => (
     />
     <Tab.Screen
       name="Home"
-      component={SignUpScreen}
+      component={TestUpload}
       options={{
         tabBarLabel: 'หน้าหลัก',
         tabBarColor: '#023246',
@@ -63,7 +64,7 @@ const MainTabScreen = () => (
 
     <Tab.Screen
       name="ATKReport"
-      component={RegisterScreen}
+      component={ATKReportScreen}
       options={{
         tabBarLabel: 'ประวัติATK',
         tabBarColor: '#023246',
@@ -74,7 +75,7 @@ const MainTabScreen = () => (
     />
     <Tab.Screen
       name="Profile"
-      component={SignInScreen}
+      component={RegisterScreen}
       options={{
         tabBarLabel: 'PROFILE',
         tabBarColor: '#023246',
