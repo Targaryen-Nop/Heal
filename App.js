@@ -34,6 +34,8 @@ import RootStackScreen from './screens/RootStackScreen';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
+import {UserStoreContext} from './context/UserContext';
+
 const Drawer = createDrawerNavigator();
 
 const App = () => {
@@ -83,15 +85,21 @@ const App = () => {
       case 'LOGIN':
         return {
           ...prevState,
-          userName: action.id,
+          userName: action.name,
+          userLname:action.lname,
+          userId:action.id,
           userToken: action.token,
+          userPhone:action.phone,
           isLoading: false,
         };
       case 'LOGOUT':
         return {
           ...prevState,
           userName: null,
+          userLname:null,
+          userId:null,
           userToken: null,
+          userPhone:null,
           isLoading: false,
         };
       case 'REGISTER':
@@ -115,15 +123,21 @@ const App = () => {
         // setUserToken('fgkj');
         // setIsLoading(false);
         const userToken = String(foundUser[0].userToken);
-        const userName = foundUser[0].username;
-
+        const userName = foundUser[0].customer_fname;
+        const userLname = foundUser[0].customer_lname
+        const userId = foundUser[0].customer_idcard
+        const userPhone = foundUser[0].customer_phone
         try {
           await AsyncStorage.setItem('userToken', userToken);
+          await AsyncStorage.setItem('userName', userName);
+          await AsyncStorage.setItem('userLname', userLname);
+          await AsyncStorage.setItem('userIdcard', userId);
+          await AsyncStorage.setItem('userPhone', userPhone);
         } catch (e) {
           console.log(e);
         }
         // console.log('user token: ', userToken);
-        dispatch({type: 'LOGIN', id: userName, token: userToken});
+        dispatch({type: 'LOGIN', name: userName,lname:userLname,id:userId, token: userToken,phone:userPhone});
       },
       signOut: async () => {
         // setUserToken(null);

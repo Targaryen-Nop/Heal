@@ -222,8 +222,8 @@ const RegisterScreen = ({navigation}) => {
       customer_history: history,
       customer_email: email,
     });
-    console.log(data);
-    console.log(resp.data);
+    // console.log(data);
+    // console.log(resp.data);
     navigation.navigate('LoginScreen');
     if (data.isValidPhone == false || data.isValidIdcard == false) {
       Alert.alert('Wrong !!!', 'Phone or IDcard field cannot be empty.', [

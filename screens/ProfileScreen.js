@@ -61,7 +61,9 @@ const ProfileScreen = ({navigation}) => {
                 {format(new Date(), 'dd MMMM yyyy', {locale: th})}
               </Text>
             </View>
-            <TouchableOpacity>
+            <TouchableOpacity
+             onPress={()=>{navigation.navigate('SaveATK')}}
+            >
               <Image
                 source={require('../assets/scan.png')}
                 style={{width: 200, height: 50}}

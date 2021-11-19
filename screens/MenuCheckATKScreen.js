@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  ImageBackground
 } from 'react-native';
 
 import {Avatar} from 'react-native-paper';
@@ -19,6 +20,10 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 const MenuCheckATKScreen = ({navigation}) => {
   return (
     <ScrollView>
+           <ImageBackground
+        source={require('../assets/background_gray.jpg')}
+        style={{flex: 1}}
+        resizeMode="cover">
       <View style={{paddingHorizontal: 20, paddingTop: 20}}>
         <View
           style={{
@@ -56,7 +61,9 @@ const MenuCheckATKScreen = ({navigation}) => {
               {format(new Date(), 'dd MMMM yyyy', {locale: th})}
             </Text>
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity
+          onPress={()=>{navigation.navigate('SaveATK')}}
+          >
             <Image
               source={require('../assets/scan.png')}
               style={{width: 200, height: 50}}
@@ -105,6 +112,7 @@ const MenuCheckATKScreen = ({navigation}) => {
           </View>
         </View>
       </View>
+      </ImageBackground>
     </ScrollView>
   );
 };

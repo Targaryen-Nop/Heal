@@ -52,7 +52,7 @@ const MainTabScreen = () => (
     />
     <Tab.Screen
       name="Home"
-      component={TestUpload}
+      component={HomeStackScreen}
       options={{
         tabBarLabel: 'หน้าหลัก',
         tabBarColor: '#023246',
@@ -64,7 +64,7 @@ const MainTabScreen = () => (
 
     <Tab.Screen
       name="ATKReport"
-      component={ATKReportScreen}
+      component={MenuCheckATKScreen}
       options={{
         tabBarLabel: 'ประวัติATK',
         tabBarColor: '#023246',
@@ -75,7 +75,7 @@ const MainTabScreen = () => (
     />
     <Tab.Screen
       name="Profile"
-      component={RegisterScreen}
+      component={ProfileStackScreen}
       options={{
         tabBarLabel: 'PROFILE',
         tabBarColor: '#023246',

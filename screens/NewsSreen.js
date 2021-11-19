@@ -23,44 +23,31 @@ import {getVersion} from '../redux/actions/authAction';
 import axios from 'axios';
 
 import {parse} from 'fast-xml-parser';
-const parseString = require('react-native-xml2js').parseString;
-//const XMLParser = require('react-xml-parser');
-//import XMLParser from 'react-xml-parser';
+import {AuthContext} from '../components/context';
+
+import AsyncStorage from '@react-native-community/async-storage';
 
 const NewsSreen =  ({navigation}) => {
-  const [version, setVersion] = React.useState('');
-  const [data, setData] = React.useState();
+ 
 
-  const getData = async () => {
-    const resp = await axios.get('https://api.codingthailand.com/api/version');
-    setVersion(resp.data.data.version);
-  };
-
-  // const getXMLResponse = async () => {
-  //   const response = await fetch('https://gorest.co.in/public-api/posts.xml');
-  //   console.log('response is' + response);
-  // };
-
-  const getSurfaces=()=>{
-    fetch('https://gorest.co.in/public-api/posts.xml')
-        .then((response) => response.text())
-        .then((responseText) => {
-            parseString(responseText, function (err, result) {
-                console.log(response)
-            });
-        })
-        .catch((err) => {
-            console.log('Error fetching the feed: ', err)
+  const [profile,setProfile] = React.useState({});
+ 
+  const getProfile = async () =>{
+    const name = await AsyncStorage.getItem('userName')
+    const lname = await AsyncStorage.getItem('userLname')
+    const phone = await AsyncStorage.getItem('userPhone')
+    const idcard = await AsyncStorage.getItem('userIdcard')
+    setProfile({
+      name:name,
+      lname:lname,
+      phone:phone,
+      idcard:idcard,
     })
-}
-
-
-  React.useEffect(() => {
-    getData();
-    getSurfaces();
-    //console.log(xml);
-  }, []);
-
+  }
+React.useEffect(()=>{
+  getProfile()
+  
+},[])
   return (
     <ScrollView>
       <ImageBackground
@@ -75,8 +62,7 @@ const NewsSreen =  ({navigation}) => {
               alignItems: 'center',
             }}>
             <TouchableOpacity
-              onPress={() => {
-                navigation.goBack();
+              onPress={() => {             
               }}>
               <Image
                 source={require('../assets/back.png')}
@@ -84,6 +70,7 @@ const NewsSreen =  ({navigation}) => {
               />
             </TouchableOpacity>
             <Text style={[styles.text, globeStyles.fontBold]}>ข่าวสาร</Text>
+         
             <TouchableOpacity>
               <Image
                 source={require('../assets/setting.png')}
@@ -96,8 +83,10 @@ const NewsSreen =  ({navigation}) => {
         <View style={globeStyles.cardlayout}>
           <Text />
           <View style={[globeStyles.cardinside]}>
-            <Text>dawd {version}</Text>
-            <Text>r</Text>
+         
+           <TouchableOpacity style={{backgroundColor:'#000',width:100,height:100}} onPress={()=>{console.log(profile.name)}}>
+              <Text>{profile.name}</Text>
+           </TouchableOpacity>
           </View>
         </View>
       </ImageBackground>
