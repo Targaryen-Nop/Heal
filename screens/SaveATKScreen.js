@@ -117,10 +117,10 @@ const SaveATKScreen = ({navigation}) => {
                 />
               </ImageBackground>
               <TouchableOpacity style={styles.open_button} onPress={openCamera}>
-                <Text>เปิดกล้อง</Text>
+                <Text style={[globeStyles.fontWhite]}>เปิดกล้อง</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.open_button}>
-                <Text>Upload</Text>
+                <Text style={[globeStyles.fontWhite]}>Upload</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -159,6 +159,8 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#287094',
     borderRadius: 10,
+    alignItems:'center',
+    justifyContent:'center'
   },
 });
 
